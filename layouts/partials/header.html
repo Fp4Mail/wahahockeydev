@@ -1,0 +1,14 @@
+<header>
+  <div class="container nav">
+    <a href="/" class="logo-link">
+      <img src="/images/logo.jpg" alt="Westborough Amateur Hockey Association" class="logo" />
+    </a>
+    <nav style="margin-left:auto;display:flex;gap:.25rem;flex-wrap:wrap;align-items:center">
+      {{ $current := . }}
+      {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}" class="{{ if $current.IsMenuCurrent "main" . }}active{{ end }}">{{ .Name }}</a>
+      {{ end }}
+      <a href="{{ .Site.Params.donate_url }}" class="btn" target="_blank" rel="noopener">Donate</a>
+    </nav>
+  </div>
+</header>
