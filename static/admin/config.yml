@@ -3,9 +3,7 @@ backend:
   repo: Fp4Mail/wahahockeyprod
   branch: main
   
-  auth:
-    github:
-      client_id: Ov23li4JiYlsbjCpz0b7
+  app_id: Ov23li4JiYlsbjCpz0b7
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
