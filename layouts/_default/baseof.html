@@ -13,7 +13,7 @@
   <meta name="description" content="{{ .Description | default .Site.Params.description | default "Westborough Amateur Hockey Association - Supporting youth hockey in Westborough, MA" }}" />
   <meta property="og:title" content="{{ if .Title }}{{ .Title }} · {{ end }}{{ .Site.Title }}" />
   <meta property="og:description" content="{{ .Description | default .Site.Params.description | default "Westborough Amateur Hockey Association - Supporting youth hockey in Westborough, MA" }}" />
-  <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Site.Params.images | index 0 | default "/images/social-card.png" }}" />
+  <meta property="og:image" content="{{ .Site.BaseURL }}{{ if .Site.Params.images }}{{ index .Site.Params.images 0 }}{{ else }}/images/social-card.png{{ end }}" />
   <meta property="og:url" content="{{ .Permalink }}" />
   <meta name="twitter:card" content="summary_large_image" />
   
