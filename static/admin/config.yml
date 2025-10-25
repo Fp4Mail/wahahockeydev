@@ -3,10 +3,8 @@ backend:
   repo: Fp4Mail/wahahockeyprod
   branch: main
   auth_scope: repo
-  open_authoring: true
 
   site_url: https://wahahockey.org
-  publish_mode: editorial_workflow
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
