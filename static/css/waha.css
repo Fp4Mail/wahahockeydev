@@ -37,16 +37,6 @@
     height: 65px;
     max-width: 2200px;
   }
-}
-
-/* Page background: subtle gradient */
-html,body{
-  min-height:100%;
-  background:
-    radial-gradient(1100px 600px at -10% -10%, color-mix(in srgb, var(--burgundy) 20%, transparent), transparent 60%),
-    radial-gradient(1100px 600px at 110% 0%, color-mix(in srgb, var(--navy) 24%, transparent), transparent 60%),
-    linear-gradient(180deg, color-mix(in srgb, var(--navy) 6%, transparent), transparent 30%);
-}
 
 /* === WAHA Background Override === */
 html, body {
