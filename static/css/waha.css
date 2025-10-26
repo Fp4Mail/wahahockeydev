@@ -37,16 +37,7 @@
     height: 65px;
     max-width: 2200px;
   }
-
-/* === WAHA Background Override === */
-html, body {
-  min-height: 100%;
-  background: 
-    linear-gradient(rgba(10, 35, 66, 0.4), rgba(128, 0, 32, 0.4)), /* navy–burgundy overlay */
-    url("/images/rink-bg.png") center center / cover no-repeat fixed;
-  color: var(--white);
-}
-
+  
 /* Page background: subtle gradient */
 html,body{
   min-height:100%;
