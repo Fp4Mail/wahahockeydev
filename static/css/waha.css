@@ -46,6 +46,16 @@ html, body {
     url("/images/rink-bg.png") center center / cover no-repeat fixed;
   color: var(--white);
 }
+}
+
+/* Page background: subtle gradient */
+html,body{
+  min-height:100%;
+  background:
+    radial-gradient(1100px 600px at -10% -10%, color-mix(in srgb, var(--burgundy) 20%, transparent), transparent 60%),
+    radial-gradient(1100px 600px at 110% 0%, color-mix(in srgb, var(--navy) 24%, transparent), transparent 60%),
+    linear-gradient(180deg, color-mix(in srgb, var(--navy) 6%, transparent), transparent 30%);
+}
 
 /* Header/nav: sticky, blur, depth */
 header{
