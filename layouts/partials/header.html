@@ -1,14 +1,23 @@
-<header>
-  <div class="container nav">
-    <a href="/" class="logo-link">
-      <img src="/images/logo.jpg" alt="Westborough Amateur Hockey Association" class="logo" />
+<div class="team-strip" aria-label="WAHA values">
+  <div class="container team-strip__inner">
+    <span>Player-first</span><i aria-hidden="true"></i><span>Community-powered</span><i aria-hidden="true"></i><span>Westborough proud</span>
+  </div>
+</div>
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <a href="/" class="brand" aria-label="WAHA home">
+      <img src="/images/logo.jpg" alt="" class="brand__crest">
+      <span class="brand__name"><strong>WAHA</strong><small>Westborough Amateur Hockey</small></span>
     </a>
-    <nav style="margin-left:auto;display:flex;gap:.25rem;flex-wrap:wrap;align-items:center">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+      <span class="sr-only">Open menu</span><span></span><span></span><span></span>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Main navigation" data-menu>
       {{ $current := . }}
       {{ range .Site.Menus.main }}
-        <a href="{{ .URL }}" class="{{ if $current.IsMenuCurrent "main" . }}active{{ end }}">{{ .Name }}</a>
+        <a href="{{ .URL }}" {{ if or ($current.IsMenuCurrent "main" .) (and (eq .URL "/") $current.IsHome) }}aria-current="page"{{ end }}>{{ .Name }}</a>
       {{ end }}
-      <a href="{{ .Site.Params.donate_url }}" class="btn" target="_blank" rel="noopener">Donate</a>
+      <a href="{{ .Site.Params.donate_url }}" class="button button--light nav-donate" target="_blank" rel="noopener">Donate <span aria-hidden="true">↗</span></a>
     </nav>
   </div>
 </header>

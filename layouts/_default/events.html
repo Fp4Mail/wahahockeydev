@@ -1,0 +1,11 @@
+{{ define "main" }}
+<section class="page-hero"><div class="container"><p class="eyebrow eyebrow--light">At the rink</p><h1>{{ .Title }}</h1><p>{{ .Description }}</p></div></section>
+<section class="content-section"><div class="container prose">
+  {{ .Content }}
+  {{ if not .Site.Params.calendar_embed }}
+  <div class="notice-card"><h2>Full calendar coming soon</h2><p>We’re connecting the WAHA calendar. For current dates and times, follow our social pages or contact the team.</p><div class="button-row"><a class="button button--burgundy" href="{{ .Site.Params.facebook_url }}" target="_blank" rel="noopener">Check Facebook <span aria-hidden="true">↗</span></a><a class="text-link" href="/contact/">Contact WAHA <span aria-hidden="true">→</span></a></div></div>
+  {{ else }}
+  <div class="calendar-shell"><iframe src="{{ .Site.Params.calendar_embed }}" title="WAHA events calendar" loading="lazy"></iframe></div>
+  {{ end }}
+</div></section>
+{{ end }}

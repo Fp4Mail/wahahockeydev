@@ -1,0 +1,8 @@
+{{ define "main" }}
+<section class="page-hero"><div class="container"><p class="eyebrow eyebrow--light">Support the game</p><h1>{{ .Title }}</h1><p>{{ .Description }}</p></div></section>
+<section class="content-section"><div class="container prose">
+  {{ .Content }}
+  <div class="donation-panel"><h2>Ready to help?</h2><p>Your donation supports hockey opportunities for Westborough players.</p><a class="button button--white" href="{{ .Site.Params.donate_url }}" target="_blank" rel="noopener">Donate with Venmo <span aria-hidden="true">↗</span></a></div>
+  <h2>Questions about giving?</h2><p>Email <a href="mailto:{{ .Site.Params.treasurer_email }}">{{ .Site.Params.treasurer_email }}</a>.</p>
+</div></section>
+{{ end }}

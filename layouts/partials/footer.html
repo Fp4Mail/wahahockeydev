@@ -1,6 +1,28 @@
-<footer class="footer">
-  <div class="container">
-    <div>&copy; {{ now.Year }} {{ .Site.Params.org_name | default .Site.Title }} · WAHA is a 501(c)(3) nonprofit.</div>
-    <div style="font-size:.9rem;margin-top:.5rem">Contact: info@wahahockey.org</div>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="/images/logo.jpg" alt="WAHA Rangers logo">
+      <div><strong>Westborough Amateur<br>Hockey Association</strong><p>Building players, confidence, and community through hockey.</p></div>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <a href="/programs/">Programs</a><a href="/events/">Events</a><a href="/news/">News</a><a href="/media/">Media</a>
+    </div>
+    <div>
+      <h2>Get involved</h2>
+      <a href="/contact/">Volunteer</a><a href="{{ .Site.Params.donate_url }}" target="_blank" rel="noopener">Donate</a><a href="mailto:{{ .Site.Params.contact_email }}">Email WAHA</a>
+    </div>
+    <div>
+      <h2>Follow the Rangers</h2>
+      <div class="social-links">
+        <a class="social social--facebook" href="{{ .Site.Params.facebook_url }}" target="_blank" rel="noopener" aria-label="WAHA on Facebook">f</a>
+        <a class="social social--instagram" href="{{ .Site.Params.instagram_url }}" target="_blank" rel="noopener" aria-label="WAHA on Instagram">◎</a>
+      </div>
+      <p>Westborough, Massachusetts</p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; {{ now.Year }} WAHA. All rights reserved.</span>
+    <span>Volunteer-run • 501(c)(3) nonprofit</span>
   </div>
 </footer>

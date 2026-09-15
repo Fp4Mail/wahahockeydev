@@ -1,29 +1,27 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{ if .Title }}{{ .Title }} · {{ end }}{{ .Site.Title }}</title>
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="{{ .Site.Params.favicon | default "/favicon.png" }}" />
-  <link rel="apple-touch-icon" href="{{ .Site.Params.favicon | default "/favicon.png" }}" />
-  
-  <!-- Meta tags for SEO and social sharing -->
-  <meta name="description" content="{{ .Description | default .Site.Params.description | default "Westborough Amateur Hockey Association - Supporting youth hockey in Westborough, MA" }}" />
-  <meta property="og:title" content="{{ if .Title }}{{ .Title }} · {{ end }}{{ .Site.Title }}" />
-  <meta property="og:description" content="{{ .Description | default .Site.Params.description | default "Westborough Amateur Hockey Association - Supporting youth hockey in Westborough, MA" }}" />
-  <meta property="og:image" content="{{ .Site.BaseURL }}/images/social-card.png" />
-  <meta property="og:url" content="{{ .Permalink }}" />
-  <meta name="twitter:card" content="summary_large_image" />
-  
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="stylesheet" href="/css/waha.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if and .Title (ne .Title "Home") }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+  <meta name="description" content="{{ .Description | default .Site.Params.description }}">
+  <meta name="theme-color" content="#6f1029">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="icon" type="image/png" href="{{ .Site.Params.favicon }}">
+  <link rel="apple-touch-icon" href="{{ .Site.Params.favicon }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:title" content="{{ if and .Title (ne .Title "Home") }}{{ .Title }} | {{ end }}{{ .Site.Title }}">
+  <meta property="og:description" content="{{ .Description | default .Site.Params.description }}">
+  <meta property="og:image" content="{{ .Site.Params.social_image | absURL }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/css/waha.css">
+  <script src="/js/site.js" defer></script>
 </head>
-<body>
+<body class="{{ if .IsHome }}home{{ else }}inner-page{{ end }}">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   {{ partial "header.html" . }}
-  <main>{{ block "main" . }}{{ end }}</main>
+  <main id="main-content">{{ block "main" . }}{{ end }}</main>
   {{ partial "footer.html" . }}
 </body>
 </html>

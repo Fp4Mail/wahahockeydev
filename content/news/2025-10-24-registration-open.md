@@ -4,6 +4,7 @@ date: 2025-10-24T10:00:00-04:00
 description: "Join WAHA for another exciting season of youth hockey. Early bird registration ends November 15th."
 tags: ["registration", "season", "youth hockey"]
 image: "/uploads/registration-open.jpg"
+draft: true
 ---
 
 We're excited to announce that registration for the **2025-26 WAHA hockey season** is now officially open! 
