@@ -1,10 +1,8 @@
 ---
 title: "Events & Schedule"
+description: "Keep up with WAHA events, clinics, community activities, and key dates."
+type: "events"
+layout: "events"
 ---
 
-<iframe
-  src='{{ .Site.Params.calendar_embed }}'
-  style="border:0" width="100%" height="600" frameborder="0" scrolling="no">
-</iframe>
-
-*This calendar updates automatically.*
+Check this page for upcoming WAHA events and schedule updates. Event details can change, so confirm the latest time and location before heading to the rink.

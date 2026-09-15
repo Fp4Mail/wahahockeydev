@@ -1,14 +1,18 @@
 {{ define "main" }}
-<section>
-  <div class="container">
-    <h1>{{ .Title }}</h1>
-    <ul>
-      {{ range .Pages.ByDate.Reverse }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <span style="color:#777">— {{ .Date.Format "Jan 2, 2006" }}</span></li>
-      {{ else }}
-        <li>No entries yet.</li>
-      {{ end }}
-    </ul>
+<section class="page-hero"><div class="container"><p class="eyebrow eyebrow--light">WAHA</p><h1>{{ .Title }}</h1>{{ with .Description }}<p>{{ . }}</p>{{ end }}</div></section>
+<section class="content-section"><div class="container">
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+  <div class="list-grid">
+    {{ range .Pages.ByDate.Reverse }}
+    <article class="list-card">
+      {{ if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>{{ end }}
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <p>{{ .Summary | plainify | truncate 125 }}</p>
+      <a class="text-link" href="{{ .RelPermalink }}">View {{ if eq .Section "media" }}media{{ else }}story{{ end }} <span aria-hidden="true">→</span></a>
+    </article>
+    {{ else }}
+    <div class="notice-card"><h2>Updates are coming soon.</h2><p>Follow WAHA on Facebook and Instagram for the latest from the rink.</p></div>
+    {{ end }}
   </div>
-</section>
+</div></section>
 {{ end }}

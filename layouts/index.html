@@ -1,35 +1,70 @@
 {{ define "main" }}
 <section class="hero">
-  <div class="container">
-    <h1>Building Westborough Hockey — from Learn‑to‑Play to Varsity</h1>
-    <p>WAHA is a volunteer‑run nonprofit supporting Westborough youth and high-school hockey with programs, ice time, equipment, and scholarships.</p>
+  <div class="hero__ice" aria-hidden="true"></div>
+  <div class="container hero__content">
+    <p class="eyebrow eyebrow--light">Westborough Amateur Hockey Association</p>
+    <h1>Where Westborough<br><em>hockey grows.</em></h1>
+    <p class="hero__lead">From first strides to high-school competition, WAHA helps local players build skills, confidence, and friendships that last beyond the rink.</p>
+    <div class="button-row">
+      <a class="button button--white" href="/programs/">Explore programs <span aria-hidden="true">→</span></a>
+      <a class="button button--outline" href="/about/">Meet WAHA</a>
+    </div>
+    <div class="hero__facts" aria-label="About WAHA">
+      <span><strong>Local</strong> Westborough focused</span>
+      <span><strong>Inclusive</strong> All skill levels</span>
+      <span><strong>Volunteer-run</strong> Community powered</span>
+    </div>
   </div>
 </section>
 
-<section>
-  <div class="container grid grid-3">
-    <div class="card">
-      <h3>Next Events</h3>
-      <p>Auto-updated from our Google Calendar.</p>
-      <p><a href="/events/">See all events →</a></p>
+<section class="quick-links section--tight" aria-label="Popular links">
+  <div class="container quick-grid">
+    <a class="quick-card" href="/programs/"><span class="quick-card__icon" aria-hidden="true">01</span><span><strong>Find your program</strong><small>Start or continue your hockey journey</small></span><b aria-hidden="true">→</b></a>
+    <a class="quick-card" href="/events/"><span class="quick-card__icon" aria-hidden="true">02</span><span><strong>Schedule & events</strong><small>See what’s happening at the rink</small></span><b aria-hidden="true">→</b></a>
+    <a class="quick-card" href="{{ .Site.Params.donate_url }}" target="_blank" rel="noopener"><span class="quick-card__icon" aria-hidden="true">03</span><span><strong>Support WAHA</strong><small>Help keep hockey accessible</small></span><b aria-hidden="true">↗</b></a>
+  </div>
+</section>
+
+<section class="section mission-section">
+  <div class="container split">
+    <div class="mission-copy">
+      <p class="eyebrow">More than a game</p>
+      <h2>Growing good teammates on and off the ice.</h2>
+      <p>WAHA supports Westborough youth and high-school hockey with programs, equipment, ice time, and scholarships. We create more ways for local players to learn, compete, and belong.</p>
+      <a class="text-link" href="/about/">Our mission and story <span aria-hidden="true">→</span></a>
     </div>
-    <div class="card">
-      <h3>Latest News</h3>
-      <ul>
-        {{ range first 3 (where .Site.RegularPages "Section" "news") }}
-          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-        {{ else }}<li>No news yet. Check back soon.</li>{{ end }}
-      </ul>
-      <p><a href="/news/">All news →</a></p>
+    <div class="rink-card" aria-label="WAHA values">
+      <div class="rink-card__line" aria-hidden="true"></div>
+      <div class="value value--one"><span>01</span><strong>Learn</strong><small>Build strong fundamentals</small></div>
+      <div class="value value--two"><span>02</span><strong>Compete</strong><small>Work hard together</small></div>
+      <div class="value value--three"><span>03</span><strong>Belong</strong><small>Grow the hockey community</small></div>
     </div>
-    <div class="card">
-      <h3>Ways to Help</h3>
-      <ul>
-        <li><a href="/contact/">Volunteer</a></li>
-        <li><a href="/donate/">Donate</a></li>
-        <li><a href="/media/">Share photos & videos</a></li>
-      </ul>
+  </div>
+</section>
+
+<section class="section section--ice">
+  <div class="container">
+    <div class="section-heading">
+      <div><p class="eyebrow">From the rink</p><h2>Latest WAHA news</h2></div>
+      <a class="text-link" href="/news/">View all news <span aria-hidden="true">→</span></a>
     </div>
+    <div class="news-grid">
+      {{ range first 3 (where .Site.RegularPages "Section" "news") }}
+      <article class="news-card">
+        <a href="{{ .RelPermalink }}" class="news-card__image" {{ with .Params.image }}style="background-image:url('{{ . }}')"{{ end }} aria-label="Read {{ .Title }}"><span>WAHA</span></a>
+        <div class="news-card__body"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ .Summary | plainify | truncate 115 }}</p><a class="text-link" href="{{ .RelPermalink }}">Read story <span aria-hidden="true">→</span></a></div>
+      </article>
+      {{ else }}
+      <div class="empty-state"><span class="puck" aria-hidden="true"></span><h3>Fresh ice. News coming soon.</h3><p>Follow WAHA on social media for updates from the rink.</p></div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section join-section">
+  <div class="container join-card">
+    <div><p class="eyebrow eyebrow--light">Community makes it possible</p><h2>Help more players get on the ice.</h2><p>Your time, support, and donations help WAHA create opportunities for Westborough athletes.</p></div>
+    <div class="button-row"><a class="button button--white" href="{{ .Site.Params.donate_url }}" target="_blank" rel="noopener">Make a donation <span aria-hidden="true">↗</span></a><a class="button button--outline" href="/contact/">Volunteer with us</a></div>
   </div>
 </section>
 {{ end }}

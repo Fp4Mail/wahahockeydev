@@ -1,9 +1,7 @@
 {{ define "main" }}
-<section>
-  <div class="container">
-    <h1>{{ .Title }}</h1>
-    <div style="color:#777;margin-bottom:1rem">{{ .Date.Format "Jan 2, 2006" }}</div>
-    <article class="card">{{ .Content }}</article>
-  </div>
-</section>
+<section class="page-hero"><div class="container"><p class="eyebrow eyebrow--light">{{ if .Section }}{{ .Section }}{{ else }}WAHA{{ end }}</p><h1>{{ .Title }}</h1>{{ with .Description }}<p>{{ . }}</p>{{ end }}</div></section>
+<section class="content-section"><div class="container prose">
+  {{ if and (not .Date.IsZero) (or (eq .Section "news") (eq .Section "media")) }}<div class="article-meta">{{ .Date.Format "January 2, 2006" }}</div>{{ end }}
+  {{ .Content }}
+</div></section>
 {{ end }}
