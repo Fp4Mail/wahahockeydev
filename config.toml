@@ -16,6 +16,7 @@ summaryLength = 24
   favicon = "/favicon.png"
   social_image = "/images/social-card.png"
   contact_email = "info@wahahockey.org"
+  contact_form_endpoint = "https://formspree.io/f/mgavwklb"
   treasurer_email = "treasurer@wahahockey.org"
   facebook_url = "https://www.facebook.com/westborohockey.waha/"
   instagram_url = "https://www.instagram.com/whs__hockey/"
